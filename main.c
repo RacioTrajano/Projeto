@@ -1,13 +1,14 @@
 
 // PROFESSOR Usei como base o algorítmo em javascript que está neste link: http://nick-aschenbach.github.io/blog/2014/07/06/2d-fractal-terrain/
 #include <stdio.h>
+#include <stdlib.h>
 
 // função que via gerar as alturas
 int gera_linha(int altura_esquerda, int altura_direita, int tam, int* vet){
   int pos_direita;
   int pos_esquerda;
   int pos_media;
-  int altura_media = (altura_esquerda + altura_direita)/2;
+  int altura_media = (altura_esquerda + altura_direita)/2 + rand()%5 - 4;
   vet[0] =altura_esquerda;
   vet[tam-1] = altura_direita;
 

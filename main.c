@@ -8,7 +8,7 @@ int gera_linha(int altura_esquerda, int altura_direita, int tam, int* vet){
   int pos_direita;
   int pos_esquerda;
   int pos_media;
-  int altura_media = (altura_esquerda + altura_direita)/2 + rand()%5 - 4;
+  int altura_media = (altura_esquerda + altura_direita)/2 + rand()%3 - 2;
   vet[0] =altura_esquerda;
   vet[tam-1] = altura_direita;
 

@@ -13,18 +13,16 @@ int gera_linha(int altura_esquerda, int altura_direita, int tam, int* vet){
 
 
   if (pos_direita == pos_esquerda + 2){
-    return altura_media;
     vet[pos_media] = altura_media;
+    return altura_media;
+    
   }
   else{
-    gera_linha(altura_esquerda,altura_media, tam, vet);
-    gera_linha(altura_media, altura_direita, tam, vet);
+    gera_linha(vet[0], vet[pos_media],tam, vet);
+    gera_linha(vet[pos_media +1], vet[tam-1], tam, vet);
     return altura_media;
   }
 }
-
-
-
 
 
 

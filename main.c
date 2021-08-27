@@ -18,7 +18,7 @@ int gera_linha(int pos_esquerda, int pos_direita, int tam, int* vet, int var){
   }
   else{
     gera_linha(0, pos_media,tam, vet,var);
-    gera_linha(pos_media +1, tam-1, tam, vet,var);
+    gera_linha(pos_media, tam-1, tam, vet,var);
     return altura_media;
   }
 }

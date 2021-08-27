@@ -4,23 +4,21 @@
 #include <stdlib.h>
 
 // função que via gerar as alturas
-int gera_linha(int altura_esquerda, int altura_direita, int tam, int* vet){
-  int pos_direita;
-  int pos_esquerda;
+int gera_linha(int pos_esquerda, int pos_direita, int tam, int* vet, int var){
+  
   int pos_media;
-  int altura_media = (altura_esquerda + altura_direita)/2 + rand()%3 - 2;
-  vet[0] =altura_esquerda;
-  vet[tam-1] = altura_direita;
+  int altura_media = (vet[pos_esquerda] + vet[pos_direita])/2 + rand()%(2*var + 1) - var;
+  
 
 
-  if (pos_direita == pos_esquerda + 2){
+  if (pos_direita == pos_esquerda + 1){
     vet[pos_media] = altura_media;
     return altura_media;
     
   }
   else{
-    gera_linha(vet[0], vet[pos_media],tam, vet);
-    gera_linha(vet[pos_media +1], vet[tam-1], tam, vet);
+    gera_linha(0, pos_media,tam, vet,var);
+    gera_linha(pos_media +1, tam-1, tam, vet,var);
     return altura_media;
   }
 }
@@ -29,14 +27,28 @@ int gera_linha(int altura_esquerda, int altura_direita, int tam, int* vet){
 
 int main () {
 
+int var=2;
+int tam=10;
+int altura_esquerda=10;
+int pos_esquerda=0;
+int pos_direita=tam -1;
+int altura_direita=10;
 
-int tam;
-int altura_esquerda;
-int altura_direita;
 
 // vetor que vai armazenar as alturas 
 int linha[tam];
+for (int i= 0; i< tam; i++){
+  linha[i] = 0;
+}
 
-gera_linha(altura_esquerda,altura_direita, tam,linha);
+linha[pos_esquerda] = altura_esquerda;
+linha[pos_direita] = altura_direita;
+
+gera_linha(pos_esquerda,pos_direita, tam,linha,var);
+
+for(int i=0; i< tam; i++){
+  printf("%d ", linha[i]);
+}
   return 0;
 }
+

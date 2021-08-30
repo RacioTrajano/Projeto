@@ -6,12 +6,12 @@
 // função que via gerar as alturas
 int gera_linha(int pos_esquerda, int pos_direita, int tam, int* vet, int var){
   
-  int pos_media;
-  int altura_media = (vet[pos_esquerda] + vet[pos_direita])/2 + rand()%(2*var + 1) - var;
-  
+  int pos_media= (pos_esquerda + pos_direita) /2;
+  vet[pos_media] = (vet[pos_esquerda] + vet[pos_direita])/2 + rand()%(2*var + 1) - var;
+  int altura_media= vet[pos_media];
 
 
-  if (pos_direita == pos_esquerda + 1){
+  if (pos_media == pos_esquerda + 1){
     vet[pos_media] = altura_media;
     return altura_media;
     

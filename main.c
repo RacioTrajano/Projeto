@@ -27,11 +27,11 @@ void gera_linha(int pos_esquerda, int pos_direita, int tam, int* vet, int var){
 }
 
 // função que gera a matriz
-void gera_imagem(int maior, int tam, int matriz[maior][tam], int* linha){
+void gera_imagem(int maior, int tam, pixel matriz[maior][tam], int* linha, pixel pixel_cor){
 
 for(int i = 0; i<tam; i++ ){
   for(int j = maior - linha[i]; j< maior; j++){
-    matriz[j][i] = 1;
+    matriz[j][i] = pixel_cor;
   }
 }
 
@@ -44,7 +44,7 @@ void gera_ppm(int x, int y, int matriz[x][y]){
   if (arquivo != NULL){
     for (int i = 0; i< x; i++){
       for (int j= 0; j<y; j++){
-        
+
       }
     }
     fclose(arquivo);
@@ -64,6 +64,8 @@ int altura_esquerda=10;
 int pos_esquerda=0;
 int pos_direita=tam -1;
 int altura_direita=10;
+pixel pixel1;
+pixel pixel0;
 
 int maior;
 // representa a maior altura possível da linha
@@ -86,10 +88,10 @@ for (int i= 0; i< tam; i++){
 }
 
 // matriz gera_imagem
-int matriz[maior][tam];
+pixel matriz[maior][tam];
 for(int i=0 ; i< maior; i++){
   for(int j=0; j<tam; j++){
-    matriz[i][j] = 0;
+    matriz[i][j] = pixel0;
   }
 }
 
@@ -98,21 +100,12 @@ linha[pos_direita] = altura_direita;
 
 
 gera_linha(pos_esquerda,pos_direita, tam,linha,var);
-gera_imagem(maior, tam, matriz, linha);
+gera_imagem(maior, tam, matriz, linha, pixel1);
 
 
 
 
 
-printf("\n");
-for (int i = 0; i< maior; i++){
-  for (int j= 0; j< tam; j++){
-    printf("%d ", matriz[i][j]);
-  }
-  printf("\n");
-}
-
-printf("\n");
 
 
 

@@ -37,6 +37,24 @@ for(int i = 0; i<tam; i++ ){
 
 }
 
+
+void gera_ppm(int x, int y, int matriz[x][y]){
+
+  FILE *arquivo = fopen("imagem", "w");
+  if (arquivo != NULL){
+    for (int i = 0; i< x; i++){
+      for (int j= 0; j<y; j++){
+        
+      }
+    }
+    fclose(arquivo);
+  }
+  else {
+    printf("Erro ao abrir arquivo");
+  }
+
+}
+
 int main (int argc, char** argv) {
 
 

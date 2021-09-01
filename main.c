@@ -22,14 +22,11 @@ void gera_linha(int pos_esquerda, int pos_direita, int tam, int* vet, int var){
 
 void gera_imagem(int maior, int tam, int matriz[maior][tam], int* linha){
 
-for(int i = 0; i< tam; i++ ){
-  for(int j = linha[i]; j<= 0; j--){
+for(int i = 0; i<tam; i++ ){
+  for(int j = maior - linha[i]; j< maior; j++){
     matriz[j][i] = 1;
   }
 }
-
-
-
 
 }
 
@@ -54,7 +51,7 @@ else {maior = altura_direita + var;}
 
 
 //Semente das funções rand###################################################
-//srand(time(NULL));
+srand(time(NULL));
 
 
 // vetor que vai armazenar as alturas 

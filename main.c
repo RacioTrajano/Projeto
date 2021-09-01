@@ -4,6 +4,12 @@
 #include <stdlib.h>
 #include <time.h>
 
+typedef struct unidade{
+int red;
+int green;
+int blue;
+} pixel;
+
 // função que via gerar as alturas
 void gera_linha(int pos_esquerda, int pos_direita, int tam, int* vet, int var){
   
@@ -20,6 +26,7 @@ void gera_linha(int pos_esquerda, int pos_direita, int tam, int* vet, int var){
   }
 }
 
+// função que gera a matriz
 void gera_imagem(int maior, int tam, int matriz[maior][tam], int* linha){
 
 for(int i = 0; i<tam; i++ ){
@@ -34,7 +41,7 @@ int main (int argc, char** argv) {
 
 
 int var=2;
-int tam=5;
+int tam=10;
 int altura_esquerda=10;
 int pos_esquerda=0;
 int pos_direita=tam -1;
@@ -50,7 +57,7 @@ else {maior = altura_direita + var;}
 
 
 
-//Semente das funções rand###################################################
+//Semente das funções 
 srand(time(NULL));
 
 
@@ -77,9 +84,7 @@ gera_imagem(maior, tam, matriz, linha);
 
 
 
-for(int i=0; i< tam; i++){
-  printf("%d ", linha[i]);
-}
+
 
 printf("\n");
 for (int i = 0; i< maior; i++){

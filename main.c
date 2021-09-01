@@ -38,13 +38,16 @@ for(int i = 0; i<tam; i++ ){
 }
 
 
-void gera_ppm(int x, int y, int matriz[x][y]){
+void gera_ppm(int x, int y, pixel matriz[x][y]){
 
   FILE *arquivo = fopen("imagem", "w");
   if (arquivo != NULL){
+    fprintf(arquivo,"P3\n");
+    fprintf(arquivo,"%d %d\n", x, y);
+    fprintf(arquivo,"%d\n", 255);
     for (int i = 0; i< x; i++){
       for (int j= 0; j<y; j++){
-
+        fprintf(arquivo,"%d %d %d\n", matriz[x][y].red, matriz[i][j].green, matriz[i][j].blue );
       }
     }
     fclose(arquivo);
@@ -65,7 +68,14 @@ int pos_esquerda=0;
 int pos_direita=tam -1;
 int altura_direita=10;
 pixel pixel1;
+pixel1.red = 250;
+pixel1.green =0 ;
+pixel1.blue=0;
+
 pixel pixel0;
+pixel0.red= 0;
+pixel0.green=0;
+pixel0.blue=0;
 
 int maior;
 // representa a maior altura possível da linha
@@ -101,6 +111,7 @@ linha[pos_direita] = altura_direita;
 
 gera_linha(pos_esquerda,pos_direita, tam,linha,var);
 gera_imagem(maior, tam, matriz, linha, pixel1);
+gera_ppm(tam, maior, matriz);
 
 
 

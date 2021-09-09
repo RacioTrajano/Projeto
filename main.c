@@ -19,6 +19,8 @@ int altura_esquerda=50;
 int pos_esquerda=0;
 int pos_direita=tam -1;
 int altura_direita=50;
+int var2= 60;
+
 
 // inicialização das variáveis que serão inicializadas na linha de comando
 char nome[20] ="imagem.ppm";
@@ -39,35 +41,38 @@ for (int i=0; i<argc; i++){
 }
 
 // Definição das cores
+//estrelas
+pixel pixel3;
+pixel3.red = 255;
+pixel3.green = 255;
+pixel3.blue = 255;
+//montanha 2
+pixel pixel2;
+pixel2.red=0;
+pixel2.green=255;
+pixel2.blue=0;
+//montanha 1
 pixel pixel1;
 pixel1.red = 250;
 pixel1.green =0 ;
 pixel1.blue=0;
 
+//fundo
 pixel pixel0;
 pixel0.red= 0;
 pixel0.green=0;
 pixel0.blue=0;
-
-int maior;
-// representa a maior altura possível da linha
-
-if (altura_esquerda >= altura_direita){
-  maior = altura_esquerda + var;
-}
-else {maior = altura_direita + var;}
-
 
 
 //Semente das funções 
 srand(time(NULL));
 
 
-// vetor que vai armazenar as alturas 
-int linha[tam];
-for (int i= 0; i< tam; i++){
-  linha[i] = 0;
-}
+// vetor, alocado dinamicamente,que vai armazenar as alturas 
+
+
+int* linha;
+linha = calloc(tam, sizeof(int));
 
 // matriz gera_imagem
 pixel matriz[tam][tam];
@@ -82,8 +87,10 @@ linha[pos_direita] = altura_direita;
 
 
 gera_linha(pos_esquerda,pos_direita, tam,linha,var);
-gera_imagem(tam, tam, matriz, linha, pixel1);
+gera_linha2(pos_esquerda,pos_direita,tam,linha,var2);
+gera_imagem(tam, tam, matriz, linha, pixel1, pixel2, pixel3);
 gera_ppm(tam, tam, matriz,nome);
+
 
   return 0;
 }

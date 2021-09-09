@@ -1,4 +1,4 @@
-# Projeto
+# Projeto: Rácio Trajano Gomes de Lima Júnior IMD (1012) T01
 
 # O que foi feito
 	O projeto se iniciou com a implementação de um algoritmo para gerar um vetor que armazene as alturas médias, dado duas extremidades. Em seguida foi feito uma nova função que cria uma matriz a partir do vetor mencionado anteriormente, o qual possui a mesma quantidade de colunas do vetor e suas linhas são determinadas a partir da altura indicada em cada posição do vetor. Posteriormente, tal matriz foi transformada, passando do tipo int para struct, uma vez que para gerar o arquivo .ppm é necessário três argumentos para determinar as cores da imagem no sistema rgb.Após esse procedimento foi criada a função gera_ppm, a qual escreve o arquivo no formato descrito.
